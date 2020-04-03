@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "NoCovid",
+  "version": "1.0",
+
+  "description": "Filters out anything mentioning 'covid' or 'coronavirus'",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["no-covid.js"]
+    }
+  ]
+
+}
