@@ -1,47 +1,25 @@
-// {
-
-//   "manifest_version": 2,
-//   "name": "NoCovid",
-//   "version": "1.0",
-
-//   "description": "Filters out anything mentioning 'covid' or 'coronavirus'",
-
-//   "icons": {
-//     "48": "icons/border-48.png"
-//   },
-
-//   "content_scripts": [
-//     {
-//       "matches": ["*://*/*"],
-//       "js": ["no-covid.js"]
-//     }
-//   ]
-
-// }
-
 {
-"description": "block COVID-related content",
-"manifest_version": 2,
-"name": "NoCovid",
-"version": "1.0",
-"icons": {
-    "48": "icons/logo.png"
-},
+    "description": "block COVID-related content",
+    "manifest_version": 2,
+    "name": "NoCovid",
+    "version": "1.0",
+    "icons": {
+        "48": "icons/logo.png"
+    },
 
-"applications": {
-    "gecko": {
-        "id": "borderify@mozilla.org",
-        "strict_min_version": "45.0"
+    "applications": {
+        "gecko": {
+            "id": "borderify@mozilla.org",
+            "strict_min_version": "45.0"
+        }
+    },
+
+    "permissions": [
+        "webRequest",
+        "<all_urls>"
+    ],
+
+    "background": {
+        "scripts": ["background.js"]
     }
-},
-
-"permissions": [
-    "webRequest",
-    "<all_urls>"
-],
-
-"background": {
-  "scripts": ["background.js"]
- }
- 
 }

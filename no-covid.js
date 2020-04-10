@@ -1,5 +1,19 @@
 // Filters out elements that include COVID-19 related keywords
 
+// words to filter on
+keywords = ['covid', 'coronavirus']
+
+// return true if any of the keywords are in the text
+function containsKeywords(text) {
+    for (let i = 0; i < keywords.length; i++) {
+        if (text.includes(keywords[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// if the node contains any coronavirus keywords, erase its content
 function filter(node) {
     var content = node.innerHTML;
     var count = 0;
@@ -8,8 +22,8 @@ function filter(node) {
         // make lower case so content can be compared easily
         content = content.toLowerCase();
 
-        // check for covid-19 keywords and remove element content if found
-        if (content.includes('covid') || content.includes('coronavirus')) {
+        // check for covid-19 keywords and remove node content if found
+        if (containsKeywords(content)) {
             count++;  // keep count of how many elements are filtered
             node.innerHTML = "";
         }
@@ -24,10 +38,12 @@ function filterAll(node) {
     var count = 0;
     if (node && node.hasChildNodes()) {
         for (let i = 0; i < node.childNodes.length; i++) {
-            count = filterAll(node.childNodes[i]);
+            count += filterAll(node.childNodes[i]);  // recurse on child nodes
         }
     }
-    count += filter(node, count);
+
+    // only filter the node after all its children have been filtered
+    count += filter(node, count); 
     return count;
 }
 
