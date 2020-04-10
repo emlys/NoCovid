@@ -1,5 +1,5 @@
 # NoCovid
-a Firefox extension that filters out anything COVID19-related
+a Firefox extension that filters out anything COVID19-related for a more relaxing experience
 
 ## how to use
 - download the repo
