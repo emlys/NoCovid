@@ -1,23 +1,22 @@
-
 // Filters out elements that include COVID-19 related keywords
 
-let stack = [];
+var stack = [];
 var order = [];
 var content;
+var current;
 var count = 0;
 
 // visit all nodes in order of DFS
 // record the order they are visited in the order list
-
+console.log("here");
 stack.push(document.body);
 while (stack.length !== 0) {
-    let current = stack.pop();
+    current = stack.pop();
 
     order.push(current);
 
     if (current && current.hasChildNodes()) {
-        var i;
-        for (i = 0; i < current.childNodes.length; i++) {
+        for (let i = 0; i < current.childNodes.length; i++) {
             stack.push(current.childNodes[i]);
         }
     }
